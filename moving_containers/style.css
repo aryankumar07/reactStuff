@@ -1,0 +1,92 @@
+.BLUE {
+  background-color: royalblue;
+}
+
+.PINK {
+  background-color: hotpink;
+}
+
+.VOILET {
+  background-color: blueviolet;
+}
+
+.RED {
+  background-color: indianred;
+}
+
+
+
+.Container {
+  background-color: white;
+  height: 300vh;
+  width: 100%;
+}
+
+
+.Container_Body {
+  height: 100vh;
+  display: flex;
+  flex-basis: 50%;
+  position: sticky;
+  top: 0;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  width: 8rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+
+.Left_Body {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 2rem;
+  padding-top: 10rem;
+}
+
+.Left_heading {
+  font-size: 100px;
+  font-weight: 700;
+  width: 30%;
+}
+
+.Left_Body>h1 {
+  font-size: 50px;
+}
+
+.Left_Body>p {
+  text-align: justify;
+  width: 60%;
+}
+
+
+.Right_Body {
+  width: 50%;
+}
+
+.Right_Body>.Card {
+  width: 350px;
+  height: 350px;
+  border-radius: 25px;
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% + 175px);
+  transition: transform 500ms ease-in;
+}
+
+.Card>.Card_title {
+  padding: 2rem;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.Card>.Card_Heading {
+  padding: 1rem;
+  font-size: 45px;
+  font-weight: 700;
+}
