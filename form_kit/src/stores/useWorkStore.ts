@@ -14,11 +14,13 @@ interface IworkStore {
   setJob: (job: Ijob) => void
 }
 
-const useWorkStore = create<IworkStore>()((set) => ({
+export const useWorkStore = create<IworkStore>()((set) => ({
   job: [],
   setJob: (newjob) => set((state) => ({
     job: { ...state.job, newjob }
   }))
 }))
+
+
 
 
