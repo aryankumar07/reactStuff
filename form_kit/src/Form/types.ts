@@ -33,7 +33,6 @@ export type PageType = {
   title: string,
   desc: string,
   component: () => React.JSX.Element
-
 }
 
 
