@@ -3,7 +3,6 @@ import Personalpage from "./pages/personal.page"
 import Resumepage from "./pages/resume.page"
 import Socialpage from "./pages/social.page"
 import Workpage from "./pages/work.page"
-import { Control } from "react-hook-form";
 
 
 
@@ -16,6 +15,20 @@ export interface CountriesDataType {
       cities: string[]
     }[]
   }
+}
+
+
+export interface GithubData {
+  name: string,
+  bio: string,
+  avatar_url: string
+}
+
+
+export interface ProfileDataType {
+  image: string,
+  title: string,
+  description: string
 }
 
 

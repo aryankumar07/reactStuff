@@ -11,7 +11,15 @@ const Workpage = () => {
   const handleJobSubmit = () => {
     const uuid = generateUUID()
     setJobs((prev) => [...prev, uuid])
+
   }
+
+
+  const handleDelete = (uuid: string) => {
+    const newjobs = jobs.filter((job: string) => job !== uuid)
+    setJobs(newjobs)
+  }
+
 
 
   return (
@@ -24,8 +32,8 @@ const Workpage = () => {
 
       <div className="flex flex-col gap-3 justify-start items-center w-full" >
         {
-          jobs.map((job) => {
-            return <JobCard key={job} />
+          jobs.map((job, index) => {
+            return <JobCard onClick={() => handleDelete(job)} index={index} key={job} />
           })
         }
       </div>
@@ -37,8 +45,6 @@ const Workpage = () => {
         <ClipboardPen />
         <h1>Add Job</h1>
       </div>
-
-
     </div>
   )
 }

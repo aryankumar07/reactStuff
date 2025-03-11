@@ -2,7 +2,6 @@ import { Input } from "@/components/ui/input"
 import { ChangeEvent, useRef, useState } from "react"
 import { useFormContext } from "react-hook-form"
 import { FileCheck2, Trash2 } from "lucide-react"
-import Inputbox from "@/components/ui/InputBox"
 
 const Resumepage = () => {
 
@@ -44,8 +43,6 @@ const Resumepage = () => {
       <div className="font-semibold text-xl">
         Upload Your Resume. It Helps Us To Know You More
       </div>
-
-
       <Input
         {...register('resume')}
         ref={InputRef}
@@ -55,7 +52,6 @@ const Resumepage = () => {
         onChange={handleFileChange}
         multiple
       />
-
       {files &&
         files.map((file, index) => {
           return (

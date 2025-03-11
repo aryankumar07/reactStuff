@@ -13,7 +13,16 @@ import { format } from "date-fns"
 import { CalendarIcon, DeleteIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const JobCard = () => {
+
+interface JobCardProps {
+  index: number,
+  onClick: () => void
+}
+
+const JobCard: React.FC<JobCardProps> = ({
+  index,
+  onClick
+}) => {
 
   const [startDate, setStartDate] = useState<Date>()
   const [endDate, setendDate] = useState<Date>()
@@ -22,8 +31,10 @@ const JobCard = () => {
   return (
     <div className="bg-slate-600 w-full p-3 rounded-lg">
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold">Job#1</h1>
-        <DeleteIcon className="text-red-600 cursor-pointer" />
+        <h1 className="text-xl font-bold">Job#{index + 1}</h1>
+        <DeleteIcon
+          onClick={onClick}
+          className="text-red-600 cursor-pointer" />
       </div>
       <div className="flex gap-3 justify-between items-center w-full mt-4">
         <div className="flex flex-1 gap-2 flex-col justify-start">
