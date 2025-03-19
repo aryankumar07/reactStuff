@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { debounce, fetchGithubData, fetchMetaData } from "@/lib/utils"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, KeyboardEvent, useCallback, useEffect, useState } from "react"
 import { useFormContext } from "react-hook-form"
 import { GithubData, ProfileDataType } from "../types"
 import {
@@ -21,10 +21,43 @@ const Socialpage = () => {
   const [githubdata, setGithubdata] = useState<GithubData | null | undefined>(null)
   const [profiledata, setprofiledata] = useState<ProfileDataType | null | undefined>(null)
 
-
   const {
-    register
+    register,
+    getValues
   } = useFormContext()
+
+  const fetchdatainit = () => {
+    const githuburl: string = getValues('github')
+    const profileurl: string = getValues('portfolio')
+    if (githuburl.length !== 0) {
+      debounceGithub(githuburl)
+    }
+    if (profileurl.length !== 0) {
+      debounceProfile(profileurl)
+    }
+
+  }
+
+  useEffect(() => {
+    function fetchAlldata(event) {
+      if (event.key === "Enter") {
+        fetchdatainit()
+      }
+    }
+    document.addEventListener('keydown', fetchAlldata);
+
+    return () => {
+      document.removeEventListener('keypress', fetchAlldata)
+    }
+  }, [])
+
+
+  useEffect(() => {
+    fetchdatainit()
+  }, [])
+
+
+
 
   const debounceGithub = debounce(async (url: string) => {
     const data: GithubData | null | undefined = await fetchGithubData(url)
