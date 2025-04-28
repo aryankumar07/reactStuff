@@ -11,7 +11,7 @@ const Layout: React.FC<props> = ({
   children
 }) => {
   return (
-    <div className="h-screen flex">
+    <div className="h-screen flex overflow-hidden">
       {/* Sidebar */}
       <Sidebar />
       <div className="flex flex-col w-full">
