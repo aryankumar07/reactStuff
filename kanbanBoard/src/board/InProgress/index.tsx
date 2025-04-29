@@ -3,7 +3,7 @@ import TodoComponent from "../../compoenets/TodoComponent"
 
 const InProgressTask = () => {
   return (
-    <div className="col-span-1 h-screen overflow-scroll swin-lane">
+    <div className="col-span-1 h-screen overflow-scroll swim-lane">
       <div className="flex justify-between  items-center bg-slate-600 px-3 rounded-t-md">
         <div className="font-semibold text-lg text-white ">
           InPogress

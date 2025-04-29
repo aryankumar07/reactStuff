@@ -28,9 +28,37 @@ const Home = () => {
       zone.addEventListener('dragover', (e) => {
         e.preventDefault()
         const DraggedTask = document.querySelector('.is-dragging')
-        zone.appendChild(DraggedTask!)
+        let BottomTask = null;
+        if (e instanceof DragEvent) {
+          BottomTask = getTask(zone, e.clientY)
+        }
+
+
+        if (BottomTask) {
+          zone.insertBefore(DraggedTask!, BottomTask)
+        } else {
+          zone.appendChild(DraggedTask!)
+        }
       })
     })
+
+    function getTask(zone: Element, mouseY: number) {
+      const tasks = zone.querySelectorAll('.task:not(.is-dragging)')
+      let bottomTask = null;
+      let minDist = Number.NEGATIVE_INFINITY
+      tasks.forEach((ele: Element) => {
+        const { top } = ele.getBoundingClientRect()
+        const dist = mouseY - top;
+        if (dist < 0 && dist > minDist) {
+          bottomTask = ele
+          minDist = dist
+        }
+      });
+      console.log(bottomTask)
+      return bottomTask;
+    }
+
+
   })
 
 
